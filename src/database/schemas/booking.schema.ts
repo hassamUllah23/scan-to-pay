@@ -4,6 +4,7 @@ import { BOOKINGS } from '../../utils/strings.utils';
 import { User } from './user.schema';
 import { Types } from 'mongoose';
 import { Payment } from './payment.schema';
+import { Service } from './service.schema';
 
 @Schema({
   collection: BOOKINGS,
@@ -24,6 +25,9 @@ export class Booking {
 
   @Prop({ required: true, type: Types.ObjectId, ref: User.name })
   merchant: User | Types.ObjectId | undefined;
+
+  @Prop({ required: true, type: [{ type: Types.ObjectId, ref: User.name }] })
+  services: Array<Service | Types.ObjectId>;
 }
 
 type BookingDocument = Booking & Document;

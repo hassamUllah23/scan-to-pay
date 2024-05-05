@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Payment, PaymentDocument } from '../schemas/payment.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreatePaymentDto } from 'src/payments/dto/create-payment.dto';
-import { UpdatePaymentDto } from 'src/payments/dto/update-payment.dto';
+import { CreatePaymentDto } from '../../payments/dto/create-payment.dto';
+import { UpdatePaymentDto } from '../../payments/dto/update-payment.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

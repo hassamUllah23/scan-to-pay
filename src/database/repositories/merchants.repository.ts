@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Merchant, MerchantDocument } from '../schemas/merchant.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreateMerchantDto } from 'src/merchants/dto/create-merchant.dto';
-import { UpdateMerchantDto } from 'src/merchants/dto/update-merchant.dto';
+import { CreateMerchantDto } from '../../merchants/dto/create-merchant.dto';
+import { UpdateMerchantDto } from '../../merchants/dto/update-merchant.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

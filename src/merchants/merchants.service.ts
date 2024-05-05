@@ -2,8 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CreateMerchantDto } from './dto/create-merchant.dto';
 import { UpdateMerchantDto } from './dto/update-merchant.dto';
 import { MerchantsRepository } from '../database/repositories/merchants.repository';
-import { Merchant } from 'src/database/schemas/merchant.schema';
-import { IdDto } from 'src/utils/dtos.utils';
+import { Merchant } from '../database/schemas/merchant.schema';
+import { IdDto } from '../utils/dtos.utils';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

@@ -5,9 +5,8 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { ObjectId } from 'mongodb';
 import { faker } from '@faker-js/faker';
 import { RolesEnum } from '../utils/enums.utils';
-// import { IdDto } from '../utils/';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { IdDto } from 'src/utils/dtos.utils';
+import { IdDto } from '../utils/dtos.utils';
 
 describe('UsersController', () => {
   let controller: UsersController;
@@ -50,6 +49,7 @@ describe('UsersController', () => {
       email: faker.internet.email(),
       password: faker.internet.password(),
       role: RolesEnum.Consumer,
+      cards: [],
     };
     expect(await controller.create({ ...data })).toStrictEqual({
       _id: expect.any(String),

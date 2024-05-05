@@ -2,8 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UsersRepository } from '../database/repositories/users.repository';
-import { User } from 'src/database/schemas/user.schema';
-import { IdDto } from 'src/utils/dtos.utils';
+import { User } from '../database/schemas/user.schema';
+import { IdDto } from '../utils/dtos.utils';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

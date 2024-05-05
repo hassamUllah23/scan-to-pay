@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { CardTypesEnum } from '../../utils/enums.utils';
-import { CARDS } from 'src/utils/strings.utils';
+import { CARDS } from '../../utils/strings.utils';
 
 @Schema({
   collection: CARDS,

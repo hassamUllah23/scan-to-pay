@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Service, ServiceDocument } from '../schemas/service.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreateServiceDto } from 'src/services/dto/create-service.dto';
-import { UpdateServiceDto } from 'src/services/dto/update-service.dto';
+import { CreateServiceDto } from '../../services/dto/create-service.dto';
+import { UpdateServiceDto } from '../../services/dto/update-service.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

@@ -1,8 +1,8 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { CreateCardDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
-import { Card } from 'src/database/schemas/card.schema';
-import { IdDto } from 'src/utils/dtos.utils';
+import { Card } from '../database/schemas/card.schema';
+import { IdDto } from '../utils/dtos.utils';
 import { DeleteResult, UpdateResult } from 'mongodb';
 import { CardsRepository } from '../database/repositories/cards.repository';
 

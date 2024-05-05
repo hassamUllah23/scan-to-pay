@@ -3,19 +3,20 @@ import { MERCHANTS } from '../../utils/strings.utils';
 import { Service } from './service.schema';
 import { Types } from 'mongoose';
 import { Review } from './review.schema';
+import { User } from './user.schema';
 
 @Schema({
   collection: MERCHANTS,
   timestamps: true,
 })
 export class Merchant {
-  @Prop({ required: true })
-  userId: string;
+  @Prop({ type: [Types.ObjectId], ref: User.name })
+  user: User | Types.ObjectId | undefined;
 
-  @Prop({ default: [], type: [Types.ObjectId], ref: Service.name })
+  @Prop({ default: [], type: [{ type: Types.ObjectId, ref: Service.name }] })
   services?: Array<Service | Types.ObjectId | undefined>;
 
-  @Prop({ default: [], type: [Types.ObjectId], ref: Review.name })
+  @Prop({ default: [], type: [{ type: Types.ObjectId, ref: Review.name }] })
   reviews?: Array<Review | Types.ObjectId | undefined>;
 }
 

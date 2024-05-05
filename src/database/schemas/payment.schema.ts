@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { PaymentTypesEnum } from '../../utils/enums.utils';
-import { PAYMENTS } from 'src/utils/strings.utils';
+import { PAYMENTS } from '../../utils/strings.utils';
 import { User } from './user.schema';
 import { Types } from 'mongoose';
 

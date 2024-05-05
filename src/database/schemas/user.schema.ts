@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { RolesEnum } from '../../utils/enums.utils';
-import { CardDetail } from '../../utils/types.utils';
 import { Types } from 'mongoose';
+import { Card } from './card.schema';
 
 @Schema({
   collection: 'users',
@@ -20,8 +20,8 @@ export class User {
   @Prop({ required: true, enum: RolesEnum })
   role: RolesEnum;
 
-  // @Prop({ required: false, type: Types.ObjectId, ref: User.name })
-  // merchantDetail?: User | Types.ObjectId | undefined;
+  @Prop({ required: false, type: Types.ObjectId, ref: User.name })
+  merchantDetail?: User | Types.ObjectId | undefined;
 
   @Prop({})
   fcmToken: string; // for firebase notifications
@@ -32,10 +32,8 @@ export class User {
   @Prop({ required: false, unique: true, sparse: true }) // sparse:true will ensure that the unique constraint only applies to documents where cryptoWalletAddress exists
   cryptoWalletAddress: string;
 
-  @Prop({ type: [Object], default: [] })
-  cards: Array<CardDetail>;
-  // @Prop({ required: false, type: Types.ObjectId, ref: User.name })
-  // merchantDetail?: User | Types.ObjectId | undefined;
+  @Prop({ type: [{ type: Types.ObjectId, ref: Card.name }], default: [] })
+  cards: Array<Card | Types.ObjectId>;
 }
 
 type UserDocument = User & Document;

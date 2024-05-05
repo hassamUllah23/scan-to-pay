@@ -8,7 +8,7 @@ import {
   IsString,
 } from 'class-validator';
 import { RolesEnum } from '../../utils/enums.utils';
-import { CardDetail } from 'src/utils/types.utils';
+import { Card } from '../../database/schemas/card.schema';
 
 export class CreateUserDto {
   @IsNotEmpty()
@@ -31,18 +31,11 @@ export class CreateUserDto {
   @IsEmail()
   email: string;
 
-  // @Prop({ required: false, type: Types.ObjectId, ref: User.name })
-  // merchantDetail?: User | Types.ObjectId | undefined;
-
-  @IsOptional()
-  @IsString()
-  fcmToken?: string; // for firebase notifications
-
   @IsOptional()
   @IsEthereumAddress()
   cryptoWalletAddress?: string;
 
   @IsOptional()
   @IsArray()
-  cards: Array<CardDetail>;
+  cards: Array<Card>;
 }

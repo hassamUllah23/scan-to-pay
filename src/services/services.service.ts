@@ -2,8 +2,8 @@ import { Inject, Injectable } from '@nestjs/common';
 import { CreateServiceDto } from './dto/create-service.dto';
 import { UpdateServiceDto } from './dto/update-service.dto';
 import { ServicesRepository } from '../database/repositories/services.repository';
-import { Service } from 'src/database/schemas/service.schema';
-import { IdDto } from 'src/utils/dtos.utils';
+import { Service } from '../database/schemas/service.schema';
+import { IdDto } from '../utils/dtos.utils';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

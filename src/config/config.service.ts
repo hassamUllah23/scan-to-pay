@@ -8,17 +8,12 @@ interface DatabaseConfig {
   url: string;
 }
 
-// interface AuthConfig {
-//     jwtSecret: string;
-// }
-
 interface ServerConfig {
   port: string;
 }
 
 export interface RootConfig {
   database: DatabaseConfig;
-  // auth: AuthConfig;
   server: ServerConfig;
 }
 
@@ -42,7 +37,6 @@ export class ConfigService {
       console.error('\n\nPLEASE ENSURE ALL ENVIRONMENT VARIABLES ARE SET\n\n');
       // process.exit(1)
     }
-    // console.log({ config })
 
     return config;
   }

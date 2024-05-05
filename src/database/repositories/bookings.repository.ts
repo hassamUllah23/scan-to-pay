@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Booking, BookingDocument } from '../schemas/booking.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreateBookingDto } from 'src/bookings/dto/create-booking.dto';
-import { UpdateBookingDto } from 'src/bookings/dto/update-booking.dto';
+import { CreateBookingDto } from '../../bookings/dto/create-booking.dto';
+import { UpdateBookingDto } from '../../bookings/dto/update-booking.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

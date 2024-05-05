@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from '../schemas/user.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreateUserDto } from 'src/users/dto/create-user.dto';
-import { UpdateUserDto } from 'src/users/dto/update-user.dto';
+import { CreateUserDto } from '../../users/dto/create-user.dto';
+import { UpdateUserDto } from '../../users/dto/update-user.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

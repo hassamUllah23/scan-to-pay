@@ -3,8 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Review, ReviewDocument } from '../schemas/review.schema';
 import { IdDto } from '../../utils/dtos.utils';
-import { CreateReviewDto } from 'src/reviews/dto/create-review.dto';
-import { UpdateReviewDto } from 'src/reviews/dto/update-review.dto';
+import { CreateReviewDto } from '../../reviews/dto/create-review.dto';
+import { UpdateReviewDto } from '../../reviews/dto/update-review.dto';
 import { DeleteResult, UpdateResult } from 'mongodb';
 
 @Injectable()

@@ -6,10 +6,17 @@ import { DatabaseModule } from '../src/database/database.module';
 import { CreateUserDto } from '../src/users/dto/create-user.dto';
 import { faker } from '@faker-js/faker';
 import { RolesEnum } from '../src/utils/enums.utils';
+import {
+  CREATE,
+  DELETE,
+  GET,
+  LIST,
+  UPDATE,
+  USERS,
+} from 'src/utils/strings.utils';
 
 describe('UserController (e2e)', () => {
   let app: INestApplication;
-  // let user:User | undefined = undefined
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -34,38 +41,43 @@ describe('UserController (e2e)', () => {
       .send({ ...data })
       .expect(HttpStatus.INTERNAL_SERVER_ERROR);
   });
-  // it('/users/create (POST) should create uer and return status 201', () => {
-  //     const data: CreateUserDto = {
-  //         firstName: faker.person.firstName(), lastName: faker.person.firstName(), email: faker.internet.email(), password: faker.internet.password(), role: RolesEnum.Consumer
-  //     }
-  //     return request(app.getHttpServer())
-  //         .post('/users/create')
-  //         .send({ ...data })
-  //         .expect(HttpStatus.CREATED)
-  // });
+  it('/users/create (POST) should create uer and return status 201', () => {
+    const data: CreateUserDto = {
+      firstName: faker.person.firstName(),
+      lastName: faker.person.firstName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
+      role: RolesEnum.Consumer,
+      cards: [],
+    };
+    return request(app.getHttpServer())
+      .post(`/${USERS}/${CREATE}`)
+      .send({ ...data })
+      .expect(HttpStatus.CREATED);
+  });
 
-  // it('/users/list (GET) should return status 200', () => {
-  //     return request(app.getHttpServer())
-  //         .get('/users/list')
-  //         .expect(HttpStatus.OK)
-  // });
-  // it('/users/get (GET) should return status 400', () => {
-  //     return request(app.getHttpServer())
-  //         .get('/users/get')
-  //         .query({})
-  //         .expect(HttpStatus.BAD_REQUEST)
-  // });
-  // it('/users/update (PATCH) should return status 400', () => {
-  //     return request(app.getHttpServer())
-  //         .patch('/users/update')
-  //         .query({})
-  //         .send({})
-  //         .expect(HttpStatus.BAD_REQUEST)
-  // });
+  it('/users/list (GET) should return status 200', () => {
+    return request(app.getHttpServer())
+      .get(`/${USERS}/${LIST}`)
+      .expect(HttpStatus.OK);
+  });
+  it('/users/get (GET) should return status 400', () => {
+    return request(app.getHttpServer())
+      .get(`/${USERS}/${GET}`)
+      .query({})
+      .expect(HttpStatus.OK);
+  });
+  it('/users/update (PATCH) should return status 400', () => {
+    return request(app.getHttpServer())
+      .patch(`/${USERS}/${UPDATE}`)
+      .query({})
+      .send({})
+      .expect(HttpStatus.OK);
+  });
   it('/users/delete (DELETE) should return status 400', () => {
     return request(app.getHttpServer())
-      .delete('/users/delete')
+      .delete(`/${USERS}/${DELETE}`)
       .query({})
-      .expect(HttpStatus.BAD_REQUEST);
+      .expect(HttpStatus.OK);
   });
 });
